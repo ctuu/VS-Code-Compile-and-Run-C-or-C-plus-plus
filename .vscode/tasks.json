@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "process",
+      "command": "g++",
+      "args": [
+        "-Wall",
+        "-std=c++14",
+        "-lm",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.o"
+      ],
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$gcc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "windows": {
+        "args": [
+          "-Wall",
+          "-std=c++14",
+          "-lm",
+          "${file}",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.exe"
+        ]
+      }
+    },
+    {
+      "label": "run",
+      "type": "shell",
+      "dependsOn": "build",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.o",
+      "presentation": {
+        "focus": true
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "windows": {
+        "command": "${fileDirname}/${fileBasenameNoExtension}.exe"
+      },
+    }
+  ]
+}
