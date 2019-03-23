@@ -6,6 +6,7 @@
       "type": "process",
       "command": "g++",
       "args": [
+        "-g",
         "-Wall",
         "-std=c++14",
         "-lm",
@@ -25,6 +26,7 @@
       },
       "windows": {
         "args": [
+          "-g",
           "-Wall",
           "-std=c++14",
           "-lm",
